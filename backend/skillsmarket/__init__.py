@@ -1,0 +1,1 @@
+"""SkillsMarket backend package."""

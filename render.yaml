@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: skillsmarket
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: SKILLSMARKET_PUBLIC_HOSTNAME
+        value: skillsmarket.onrender.com
+      - key: SKILLSMARKET_USE_LIVE_SNAPSHOT
+        value: "true"
+      - key: SKILLSMARKET_ENABLE_LLM_RESUME
+        value: "true"
+      - key: SKILLSMARKET_ENABLE_SKILL_RESEARCH
+        value: "true"
+      - key: OPENROUTER_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: OPENROUTER_MODEL
+        value: openai/gpt-5.4-mini
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: APIFY_TOKEN
+        sync: false
+      - key: APIFY_USER_ID
+        sync: false
